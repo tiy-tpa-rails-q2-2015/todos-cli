@@ -40,7 +40,7 @@ module Todo
     def self.done(item_id)
       item = Item.find(item_id)
       item.complete!
-      puts "Task: #{item.task} is done... Bam!"
+      puts "Task: #{item.task} is done... Bam!!"
     end
 
     def self.run
