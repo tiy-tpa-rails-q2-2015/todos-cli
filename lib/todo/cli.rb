@@ -4,11 +4,19 @@ require 'boot'
 
 module Todo
   module CLI
+    
+    def self.add(list_name, list_item)
+      
+      
+    end
 
     def self.run
-      case ARGV[0]
-      when "list"
-        puts "You're listing things: #{ARGV[1..-1]}"
+      case ARGV[0] 
+        when "add"
+          add(*ARGV[1..-1])
+          
+        when "list"
+          puts "You're listing things: #{ARGV[1..-1]}"
       end
     end
   end
