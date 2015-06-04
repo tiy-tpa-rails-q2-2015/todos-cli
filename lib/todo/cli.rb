@@ -3,26 +3,21 @@ $LOAD_PATH.unshift File.expand_path('../../../app/models', __FILE__)
 
 require 'boot'
 require 'list'
+require 'item'
 
 module Todo
   module CLI
     
-    # Adds a new item to a list.
-    #If the list does not exist it is automatically created.
-    def self.add(list_name, list_item) 
-      #find list by name.
-      list = List.find_by name: list_name
-      #if it does not exist
-      unless list # or if !list
-        #create a list.
-        list = List.create name: list_name
+    def self.add(list_name, list_item)
+      list = List.find_by :name => list_name
+      unless list
+        list = List.create :name => list_name
         puts "Created list: #{list.name}."
       else
         puts "Found list #{list.name}."
       end
       puts "Creating list item."
-      #create a list item.
-                                       
+      list.items.create :task => list_name
     end
 
     def self.run
