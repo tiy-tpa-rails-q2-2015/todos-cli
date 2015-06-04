@@ -31,9 +31,15 @@ module Todo
         puts list.name
         puts "-" * list.name.length
         list.items.each do |item|
-          puts "[ ] " + item.task 
+          puts "[ ] #{item.id} #{item.task}"
         end
       end  
+    end
+
+    def self.done(item_id)
+      item = Item.find(item_id)
+      item.complete!
+      puts "Task: #{item.task} is done... Bam!"
     end
 
     def self.run
@@ -43,6 +49,8 @@ module Todo
           
         when "list"
           list(ARGV[1])
+        when "done"
+          done(ARGV[1])
       end
     end
   end
