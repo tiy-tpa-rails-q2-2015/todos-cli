@@ -1,6 +1,8 @@
 $LOAD_PATH.unshift File.expand_path('../../../config', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../../../app/models', __FILE__)
 
 require 'boot'
+require 'list'
 
 module Todo
   module CLI
