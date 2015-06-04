@@ -8,3 +8,4 @@
 * `list all` shows all items, including completed ones (with some visual cue for what is complete)
 * `next` picks and shows a random item (choosing one with a due date if there are any)
 * `search [string]` shows todo items containing the given string
+# todos-cli
