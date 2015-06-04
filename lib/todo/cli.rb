@@ -17,7 +17,23 @@ module Todo
         puts "Found list #{list.name}."
       end
       puts "Creating list item."
-      list.items.create :task => list_name
+      list.items.create :task => list_item
+    end
+
+    def self.list(list_name)
+      unless list_name.blank? || list_name == "all"
+        lists = List.where :name => list_name
+      else 
+        lists = List.all
+      end
+      lists.each do |list| 
+        puts 
+        puts list.name
+        puts "-" * list.name.length
+        list.items.each do |item|
+          puts "[ ] " + item.task 
+        end
+      end  
     end
 
     def self.run
@@ -26,7 +42,7 @@ module Todo
           add(*ARGV[1..-1])
           
         when "list"
-          puts "You're listing things: #{ARGV[1..-1]}"
+          list(ARGV[1])
       end
     end
   end

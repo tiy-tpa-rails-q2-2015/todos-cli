@@ -40,3 +40,6 @@ DEPENDENCIES
   pg
   pry
   rake
+
+BUNDLED WITH
+   1.10.0
