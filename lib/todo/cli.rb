@@ -50,9 +50,10 @@ module Todo
 
         when "list"
           list(ARGV[1])
+
         when "done"
-          done(ARGV[1])
+          done(ARGV[1])    
+        end
       end
     end
-  end
 end
